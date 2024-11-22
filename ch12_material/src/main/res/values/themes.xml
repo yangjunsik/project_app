@@ -1,0 +1,19 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.AndroidLab" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+    </style>
+
+    <style name="Theme.AndroidLab" parent="Base.Theme.AndroidLab" />
+    <style name="ToolbarIconColor" parent="ThemeOverlay.AppCompat.ActionBar">
+        <item name="colorControlNormal">#FFFFFF</item>
+    </style>
+    <style name="ExpandedTitleStyle" parent="TextAppearance.AppCompat.Large">
+        <item name="android:textColor">#FFFFFF</item> <!-- 확장된 상태에서 흰색 -->
+    </style>
+
+    <style name="CollapsedTitleStyle" parent="TextAppearance.AppCompat.Widget.ActionBar.Title">
+        <item name="android:textColor">#FFFFFF</item> <!-- 축소된 상태에서 흰색 -->
+    </style>
+</resources>

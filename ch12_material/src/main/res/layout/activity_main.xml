@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/drawer">
+
+    <!-- 메인 화면 레이아웃 -->
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/main_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!-- 상단 AppBar -->
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appbar"
+            android:layout_width="match_parent"
+            android:layout_height="242dp"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+            <!-- Collapsing Toolbar -->
+            <com.google.android.material.appbar.CollapsingToolbarLayout
+                android:layout_width="match_parent"
+                android:layout_height="242dp"
+                app:contentScrim="?attr/colorPrimary"
+                app:expandedTitleMarginBottom="56dp"
+                app:expandedTitleMarginStart="48dp"
+                app:layout_scrollFlags="scroll|exitUntilCollapsed"
+                app:title="AppBar Title"
+                app:expandedTitleTextColor="@color/white"
+                app:collapsedTitleTextColor="@color/white"
+                >
+
+                <!-- 배경 이미지 -->
+                <ImageView
+                    android:id="@+id/backdrop"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/baseball"
+                    app:layout_collapseMode="parallax" />
+
+                <!-- 툴바 -->
+                <androidx.appcompat.widget.Toolbar
+                    android:id="@+id/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    android:background="#00000000"
+                    android:elevation="4dp"
+                    android:theme="@style/ToolbarIconColor"
+                    app:titleTextColor="#FFFFFF"
+                    app:layout_collapseMode="pin" />
+                <!-- 탭 레이아웃 -->
+                <com.google.android.material.tabs.TabLayout
+                    android:id="@+id/tabs"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_gravity="bottom"
+                    android:background="#00000000"
+                    app:layout_collapseMode="parallax"
+                    app:tabMode="scrollable"
+                    app:tabTextColor="#FFFFFF" />
+            </com.google.android.material.appbar.CollapsingToolbarLayout>
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <!-- ViewPager2 -->
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/viewpager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
+
+        <!-- 학번 및 이름 표시 -->
+        <TextView
+            android:id="@+id/student_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="학번: 2021114998, 이름: 양준식"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_margin="16dp"
+            android:layout_gravity="center_horizontal|top" />
+
+        <!-- 확장된 FAB -->
+        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+            android:id="@+id/fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="Extended FAB"
+            android:icon="@android:drawable/ic_input_add"
+            app:layout_anchor="@id/viewpager"
+            app:layout_anchorGravity="bottom|right"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+    <!-- 네비게이션 뷰 -->
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/main_drawer_view"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        app:headerLayout="@layout/navigation_header"
+        app:menu="@menu/menu_navigation" />
+</androidx.drawerlayout.widget.DrawerLayout>
+
